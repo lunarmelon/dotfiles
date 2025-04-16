@@ -1,0 +1,29 @@
+name: Update Neovim Submodule Reference
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".config/nvim/**"
+
+jobs:
+  update-parent:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set Git user
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+      - name: Update submodule reference
+        run: |
+          git add .config/nvim
+          git commit -m "Auto-update neovim submodule to latest commit" || echo "No changes to commit"
+
+      - name: Push changes
+        run: git push
