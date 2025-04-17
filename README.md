@@ -21,7 +21,7 @@ sudo dnf install alacritty fastfetch kitty newsboat neovim stow zsh
 
 ```
 
-As of the writing of this file, ohmyposh doesn't have a dnf package. Check the [official page](https://ohmyposh.dev/) for installation instructions:
+As of the writing of this file, ohmyposh doesn't have a dnf package. Check the [official page](https://ohmyposh.dev/) for installation instructions.
 
 # Installation
 
