@@ -29,6 +29,14 @@ style = 'diamond'
 cache_duration = 'none'
 
 [[blocks.segments]]
+template = ' {{ if .Venv }} {{ .Venv }}{{ end }} '
+foreground = '#ffffff'
+background = '#3a8bff'
+powerline_symbol = ''
+type = 'python'
+style = 'powerline'
+
+[[blocks.segments]]
 template = ' {{ .Path }} '
 foreground = '#eeeeee'
 powerline_symbol = ''
