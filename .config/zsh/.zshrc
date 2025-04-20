@@ -18,6 +18,11 @@ source "${ZINIT_HOME}/zinit.zsh"
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.cargo/bin
 # export PATH=$PATH:$HOME/.fzf/bin
+export PNPM_HOME="/home/melon/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
 # Load completion
 autoload -U compinit && compinit
