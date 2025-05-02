@@ -1,2 +1,5 @@
 # zsh completion cache
 .zcompdump
+
+# tmux plugins
+.config/tmux/plugins
