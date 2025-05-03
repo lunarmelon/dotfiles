@@ -21,9 +21,9 @@ jobs:
         run: |
           cd .config/nvim
           git fetch origin main
-          git checkout main
-          git pull origin main
+          git checkout origin/main
           cd ../..
+          git add .config/nvim
 
       - name: Commit and push if submodule has changed
         run: |
