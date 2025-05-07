@@ -11,51 +11,49 @@ source "${ZINIT_HOME}/zinit.zsh"
 [ -f "${ZDOTDIR}/aliasrc" ] && source "${ZDOTDIR}/aliasrc"
 [ -f "${ZDOTDIR}/optionrc" ] && source "${ZDOTDIR}/optionrc"
 
+for file in "${ZDOTDIR}/aliasrc" "${ZDOTDIR}/optionrc"; do
+    [ -f "$file" ] && [ "$file.zwc" -ot "$file" ] && zcompile "$file"
+done
+
+# Node version manager
+FNM_PATH="/home/melon/.local/share/fnm"
+case ":$PATH:" in
+    *":$FNM_PATH:"*) ;;
+    *) export PATH="$FNM_PATH:$PATH" ;;
+esac
+
 # PATH
 # export PATH=$PATH:/usr/local/go/bin
 # export PATH=$PATH:$HOME/.local/kitty.app/bin
 # export PATH=$PATH:$HOME/.local/share/bob/nvim-bin
-export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/.cargo/bin
+# export PATH=$PATH:$HOME/.local/bin
+# export PATH=$PATH:$HOME/.cargo/bin
 # export PATH=$PATH:$HOME/.fzf/bin
-export PNPM_HOME="/home/melon/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 
 # Load completion
 autoload -U compinit && compinit
 zinit cdreplay -q
 
 # Plugins
-zinit light Aloxaf/fzf-tab
-zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-history-substring-search
-zinit light hlissner/zsh-autopair
-zinit light zap-zsh/exa
+zinit light-mode for \
+    Aloxaf/fzf-tab \
+    zdharma-continuum/fast-syntax-highlighting \
+    zsh-users/zsh-completions \
+    zsh-users/zsh-autosuggestions \
+    zsh-users/zsh-history-substring-search \
+    hlissner/zsh-autopair \
+    zap-zsh/exa
 
 # Snippets
 zinit snippet OMZP::sudo
 
-# Exports
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
-
+# Environment variables
 export TERMINAL="kitty"
 export BROWSER="librewolf"
 export EDITOR="nvim"
 export VISUAL="nvim"
-
-# Node version manager
-FNM_PATH="/home/melon/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/melon/.local/share/fnm:$PATH"
-  eval "`fnm env`"
-fi
 
 # Substring search keybinds
 zmodload zsh/terminfo
