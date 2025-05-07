@@ -51,8 +51,11 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 # Node version manager
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+FNM_PATH="/home/melon/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/melon/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
 
 # Substring search keybinds
 zmodload zsh/terminfo
@@ -78,3 +81,4 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 # Shell integrations
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/melon.toml)"
 eval "$(fzf --zsh)"
+eval "$(fnm env --use-on-cd --shell zsh)"
