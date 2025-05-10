@@ -15,12 +15,7 @@ for file in "${ZDOTDIR}/aliasrc" "${ZDOTDIR}/optionrc"; do
     [ -f "$file" ] && [ "$file.zwc" -ot "$file" ] && zcompile "$file"
 done
 
-# Node version manager
-FNM_PATH="/home/melon/.local/share/fnm"
-case ":$PATH:" in
-    *":$FNM_PATH:"*) ;;
-    *) export PATH="$FNM_PATH:$PATH" ;;
-esac
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # PATH
 # export PATH=$PATH:/usr/local/go/bin
@@ -30,7 +25,7 @@ esac
 # export PATH=$PATH:$HOME/.cargo/bin
 # export PATH=$PATH:$HOME/.fzf/bin
 
-export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$BUN_INSTALL/bin:$PATH"
 
 # Load completion
 autoload -U compinit && compinit
@@ -43,8 +38,7 @@ zinit light-mode for \
     zsh-users/zsh-completions \
     zsh-users/zsh-autosuggestions \
     zsh-users/zsh-history-substring-search \
-    hlissner/zsh-autopair \
-    zap-zsh/exa
+    hlissner/zsh-autopair
 
 # Snippets
 zinit snippet OMZP::sudo
@@ -79,4 +73,4 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 # Shell integrations
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/melon.toml)"
 eval "$(fzf --zsh)"
-eval "$(fnm env --use-on-cd --shell zsh)"
+[ -s "/home/melon/.bun/_bun" ] && source "/home/melon/.bun/_bun"
