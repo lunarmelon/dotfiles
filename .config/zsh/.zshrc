@@ -15,18 +15,6 @@ for file in "${ZDOTDIR}/aliasrc" "${ZDOTDIR}/optionrc"; do
     [ -f "$file" ] && [ "$file.zwc" -ot "$file" ] && zcompile "$file"
 done
 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# PATH
-# export PATH=$PATH:/usr/local/go/bin
-# export PATH=$PATH:$HOME/.local/kitty.app/bin
-# export PATH=$PATH:$HOME/.local/share/bob/nvim-bin
-# export PATH=$PATH:$HOME/.local/bin
-# export PATH=$PATH:$HOME/.cargo/bin
-# export PATH=$PATH:$HOME/.fzf/bin
-
-export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$BUN_INSTALL/bin:$PATH"
-
 # Load completion
 autoload -U compinit && compinit
 zinit cdreplay -q
@@ -42,12 +30,6 @@ zinit light-mode for \
 
 # Snippets
 zinit snippet OMZP::sudo
-
-# Environment variables
-export TERMINAL="kitty"
-export BROWSER="librewolf"
-export EDITOR="nvim"
-export VISUAL="nvim"
 
 # Substring search keybinds
 zmodload zsh/terminfo
@@ -71,6 +53,7 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Shell integrations
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/melon.toml)"
+eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/melon.toml)"
 eval "$(fzf --zsh)"
-[ -s "/home/melon/.bun/_bun" ] && source "/home/melon/.bun/_bun"
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
