@@ -10,12 +10,13 @@ export VISUAL="$EDITOR"
 export MANPAGER='nvim +Man!'
 export BUN_INSTALL="$HOME/.bun"
 export PNPM_HOME="$HOME/.local/share/pnpm"
-export NVM_DIR="$HOME/.config/nvm"
+export NVM_DIR="$XDG_CONFIG_HOME/nvm"
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
 # PATH
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$BUN_INSTALL/bin:$PNPM_HOME:$PATH"
 
 # zsh configuration
-export ZDOTDIR="$XDG_CONFIG_HOME/.config/zsh"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export ZSHRC="$ZDOTDIR/.zshrc"
 export ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
