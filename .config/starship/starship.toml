@@ -44,19 +44,16 @@ base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
 
-# Pink mustache icon for the prompt
 [character]
 success_symbol = "[ ❯](fg:mauve)"
 error_symbol = "[ !](fg:red)"
 
-# User settings
 [username]
 style_user = 'text bold'
 style_root = 'red bold'
 format = '[󱁇 $user] '
 show_always = true
 
-# Directory settings
 [directory]
 format = "[$path](bold $style) "
 truncation_length = 5
