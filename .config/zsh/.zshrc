@@ -53,8 +53,8 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Shell integrations
-#eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/melon.toml)"
-eval "$(starship init zsh)"
+eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/melon.toml)"
+#eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
