@@ -1,6 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
+$username\
 ($directory)\
 $nodejs\
 $bun\
@@ -49,13 +50,12 @@ success_symbol = "[ ❯](fg:mauve)"
 error_symbol = "[ !](fg:red)"
 
 [username]
-style_user = 'text bold'
 style_root = 'red bold'
-format = '[󱁇 $user] '
+format = '[](fg:#5f00d7)[󱁇 ](bg:#5f00d7 fg:#eeeeee)[$user ](bg:#5f00d7 fg:#eeeeee)[](fg:#5f00d7)'
 show_always = true
 
 [directory]
-format = "[$path](bold $style) "
+format = "[](bg:#8700ff fg:base)[$path](bg:#8700ff)"
 truncation_length = 5
 style = "fg:flamingo"
 before_repo_root_style = "fg:mauve"
@@ -75,7 +75,7 @@ style = "bold fg:teal"
 symbol = " "
 
 [git_status]
-modified = "●$count "
+modified = "●$count"
 staged = "✚$count"
 renamed = "➜$count"
 untracked = "?$count"
