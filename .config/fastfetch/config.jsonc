@@ -86,7 +86,7 @@
 		{
 			"type": "memory",
 			"key": "   ",
-			"format": "{1} {4} {2}",
+			"format": "{1} /{4} {2}",
 			"keyColor": "magenta"
 		},
 		{
