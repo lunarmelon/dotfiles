@@ -9,12 +9,10 @@ export EDITOR="nvim"
 export VISUAL="$EDITOR"
 export MANPAGER='nvim +Man!'
 export BUN_INSTALL="$HOME/.bun"
-export PNPM_HOME="$HOME/.local/share/pnpm"
 export NVM_DIR="$XDG_CONFIG_HOME/nvm"
-export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
 # PATH
-export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$BUN_INSTALL/bin:$PNPM_HOME:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$BUN_INSTALL/bin"
 
 # zsh configuration
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
