@@ -54,7 +54,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Shell integrations
 #eval "$(starship init zsh)"
-eval "$(/home/melon/miniconda3/bin/conda shell.zsh hook)"
+#eval "$(/home/melon/miniconda3/bin/conda shell.zsh hook)"
 eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/melon.toml)"
 eval "$(fzf --zsh)"
 
