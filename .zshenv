@@ -12,7 +12,7 @@ export BUN_INSTALL="$HOME/.bun"
 export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 
 # PATH
-export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$BUN_INSTALL/bin"
+#export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$BUN_INSTALL/bin"
 
 # zsh configuration
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
