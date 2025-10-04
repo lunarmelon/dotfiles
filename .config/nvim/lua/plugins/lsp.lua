@@ -271,7 +271,6 @@ return {
 			"cssls",
 			"dockerls",
 			"emmet_ls",
-			"gopls",
 			"html",
 			"intelephense",
 			"jsonls",

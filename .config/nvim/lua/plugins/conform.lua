@@ -27,12 +27,10 @@ return {
 				toml = { "taplo" },
 				yaml = { "prettierd" },
 				php = { "php_cs_fixer", "pint" },
-				go = { "goimports" },
 				c = { "clang-format" },
 				cpp = { "clang-format" },
 				markdown = { "prettierd" },
 				markdown_inline = { "prettierd" },
-				tex = { "latexindent" },
 			},
 		})
 	end,

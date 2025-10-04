@@ -39,7 +39,7 @@ return {
 	},
 	{
 		"barrett-ruth/live-server.nvim",
-		build = "pnpm add -g live-server",
+		build = "bun add -g live-server",
 		cmd = { "LiveServerStart", "LiveServerStop" },
 		config = true,
 	},
@@ -53,16 +53,6 @@ return {
 		"folke/lazydev.nvim",
 		ft = "lua",
 		opts = {},
-	},
-	{
-		"lervag/vimtex",
-		lazy = false, -- we don't want to lazy load VimTeX
-		init = function()
-			-- VimTeX configuration goes here, e.g.
-			vim.g.vimtex_view_method = "general"
-			vim.g.vimtex_compiler_method = "latexmk"
-			vim.g.vimtex_view_automatic = 1
-		end,
 	},
 	{
 		"kylechui/nvim-surround",
