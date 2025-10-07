@@ -12,16 +12,14 @@ These are my configurations for various programs I use
 - `kitty`
 - `newsboat`
 - `neovim`
-- `ohmyposh`
+- `oh-my-posh`
 - `stow`
 - `zsh`
 
 ```bash
-sudo dnf install alacritty fastfetch kitty newsboat neovim stow zsh
+sudo dnf install alacritty fastfetch kitty newsboat neovim oh-my-posh stow zsh
 
 ```
-
-As of the writing of this file, ohmyposh doesn't have a dnf package. Check the [official page](https://ohmyposh.dev/) for installation instructions.
 
 # Installation
 
@@ -38,4 +36,3 @@ stow .
 
 - In my Neovim configuration, I use [mason.nvim](https://github.com/williamboman/mason.nvim). Some packages install via npm, so I recommend that you use [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating) instead of your distribution's nodejs/npm package for consistency purposes.
 - If you're on Debian or Debian/Ubuntu-based distros, I recommend that you install Kitty from the [official binary](https://sw.kovidgoyal.net/kitty/binary/#binary-install) since the versions on the repos are a bit outdated and both Neovim and Kitty use current icat implementations (version >= 0.40) not available in previous versions.
-- For a more in-depth explanation about Neovim, check [this repo](https://github.com/lunarmelon/nvim).
