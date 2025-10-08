@@ -12,6 +12,9 @@ italic.family = "JetBrainsMono Nerd Font"
 bold_italic.family = "JetBrainsMono Nerd Font"
 size = 14.0
 
+[cursor]
+style.shape = "Beam"
+
 [general]
 # Theme
 import = ["~/.config/alacritty/alacritty-themes/catppuccin-mocha.toml"]
