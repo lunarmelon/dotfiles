@@ -42,8 +42,8 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
-				--theme = require("lualine.themes.catppuccin-mocha"),
-				theme = require("lualine.themes.tokyonight-night"),
+				theme = require("lualine.themes.catppuccin-mocha"),
+				--theme = require("lualine.themes.tokyonight-night"),
 				-- Some useful glyphs:
 				-- https://www.nerdfonts.com/cheat-sheet
 				--        
@@ -59,7 +59,6 @@ return {
 				lualine_x = {
 					diagnostics,
 					diff,
-					{ "encoding", cond = hide_in_width },
 					{ "filetype", cond = hide_in_width },
 				},
 				lualine_y = { "location" },
