@@ -1,87 +1,126 @@
 "$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
-console_title_template = '{{ .Shell }} in {{ .Folder }}'
+console_title_template = "{{ .Shell }} in {{ .Folder }}"
 version = 3
 final_space = true
 
+# Custom color palette
+[palettes]
+template = "Custom"
+
+[palettes.list.Custom]
+Text = "#eeeeee"
+User = "#5900b3"
+Path = "#7a00e6"
+Git = "#794dff"
+Prompt = "#f5c2e7"
+Python = "#04a5e5"
+Bun = "#ea76cb"
+Node = "#40a02b"
+
+# Transient prompt
 [transient_prompt]
-template = '❯ '
-background = 'transparent'
+template = "❯ "
+background = "transparent"
 foreground_templates = [
-  '{{if gt .Code 0}}red{{end}}',
-  '{{if eq .Code 0}}magenta{{end}}',
+  "{{if gt .Code 0}}red{{end}}",
+  "{{if eq .Code 0}}magenta{{end}}",
 ]
 
+# Prompt position
 [[blocks]]
-type = 'prompt'
-alignment = 'left'
+type = "prompt"
+alignment = "left"
 newline = true
 
+# User segment
 [[blocks.segments]]
-leading_diamond = ''
-trailing_diamond = ''
-template = '󱁇 {{ .UserName }} '
-foreground = '#eeeeee'
-background = '#5900b3'
-type = 'session'
-style = 'diamond'
+leading_diamond = ""
+trailing_diamond = ""
+template = "󱁇 {{ .UserName }} "
+foreground = "p:Text"
+background = "p:User"
+type = "session"
+style = "diamond"
 
 [blocks.segments.properties]
-cache_duration = 'none'
+cache_duration = "none"
 
+# Python venv
 [[blocks.segments]]
-template = ' {{ if .Venv }} {{ .Venv }}{{ end }} '
-foreground = '#eeeeee'
-background = '#e68a00'
-powerline_symbol = ''
-type = 'python'
-style = 'powerline'
+template = " {{ if .Venv }} {{ .Venv }}{{ end }} "
+foreground = "p:Text"
+background = "p:Python"
+powerline_symbol = ""
+type = "python"
+style = "powerline"
 
+# Bun segment
 [[blocks.segments]]
-template = ' {{ .Path }} '
-foreground = '#eeeeee'
-powerline_symbol = ''
-background = '#7a00e6'
-type = 'path'
-style = 'powerline'
+template = "  {{ .Full }} "
+foreground = "p:Text"
+background = "p:Bun"
+powerline_symbol = ""
+type = "bun"
+style = "powerline"
+
+# Node segment
+[[blocks.segments]]
+template = "  {{ .Full }} "
+foreground = "p:Text"
+background = "p:Node"
+powerline_symbol = ""
+type = "node"
+style = "powerline"
+
+# Path segment
+[[blocks.segments]]
+template = " {{ .Path }} "
+foreground = "p:Text"
+powerline_symbol = ""
+background = "p:Path"
+type = "path"
+style = "powerline"
 
 [blocks.segments.properties]
-cache_duration = 'none'
-folder_icon = ' '
-folder_separator_icon = '  '
-home_icon = ''
-style = 'agnoster'
+cache_duration = "none"
+folder_icon = " "
+folder_separator_icon = "  "
+home_icon = ""
+style = "agnoster"
 
+# Git segment
 [[blocks.segments]]
-template = '  {{ .HEAD }}{{ if .Staging.Changed }}<#eeeeee>  {{ .Staging.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} '
-foreground = '#eeeeee'
-powerline_symbol = ''
-background = '#794dff'
-type = 'git'
-style = 'powerline'
+template = "  {{ .HEAD }}{{ if .Staging.Changed }}<p:Text>  {{ .Staging.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} "
+foreground = "p:Text"
+powerline_symbol = ""
+background = "p:Git"
+type = "git"
+style = "powerline"
 
 [blocks.segments.properties]
-branch_icon = ' '
-cache_duration = 'none'
-cherry_pick_icon = ' '
-commit_icon = ' '
+branch_icon = " "
+cache_duration = "none"
+cherry_pick_icon = " "
+commit_icon = " "
 fetch_status = true
 fetch_upstream_icon = true
-merge_icon = ' '
-no_commits_icon = ' '
-rebase_icon = ' '
-revert_icon = ' '
-tag_icon = ' '
+merge_icon = " "
+no_commits_icon = " "
+rebase_icon = " "
+revert_icon = " "
+tag_icon = " "
 
+# Second prompt
 [[blocks]]
-type = 'prompt'
-alignment = 'left'
+type = "prompt"
+alignment = "left"
 newline = true
 
 [[blocks.segments]]
-template = ' ❯'
-foreground = 'magenta'
-type = 'text'
-style = 'plain'
+template = " ❯"
+foreground = "p:Prompt"
+type = "text"
+style = "plain"
 
 [blocks.segments.properties]
-cache_duration = 'none'
+cache_duration = "none"
