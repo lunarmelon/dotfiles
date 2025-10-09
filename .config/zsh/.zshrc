@@ -6,6 +6,7 @@ fi
 
 # Source zinit
 source "${ZINIT_HOME}/zinit.zsh"
+source "$HOME/.cargo/env"
 
 # Source aliases and options for zsh
 [ -f "${ZDOTDIR}/aliasrc" ] && source "${ZDOTDIR}/aliasrc"
