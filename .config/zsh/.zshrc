@@ -6,7 +6,6 @@ fi
 
 # Source zinit
 source "${ZINIT_HOME}/zinit.zsh"
-source "$HOME/.cargo/env"
 
 # Source aliases and options for zsh
 [ -f "${ZDOTDIR}/aliasrc" ] && source "${ZDOTDIR}/aliasrc"
@@ -59,3 +58,5 @@ eval "$(fzf --zsh)"
 
 [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$BUN_INSTALL/bin:$PATH"
