@@ -34,3 +34,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	group = highlight_group,
 	pattern = "*",
 })
+
+-- Don't autoinsert comment leader
+-- https://github.com/LazyVim/LazyVim/issues/80
+vim.api.nvim_create_autocmd("FileType", {
+	command = "set formatoptions-=cro",
+})
