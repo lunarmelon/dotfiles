@@ -37,27 +37,17 @@ return {
 			},
 		},
 	},
+	-- Live web server
 	{
 		"barrett-ruth/live-server.nvim",
 		build = "bun add -g live-server",
 		cmd = { "LiveServerStart", "LiveServerStop" },
 		config = true,
 	},
-	{
-		"folke/neoconf.nvim",
-		config = true,
-		lazy = false,
-		priority = 100,
-	},
+	-- Faster LuaLS setup for Neovim config
 	{
 		"folke/lazydev.nvim",
 		ft = "lua",
 		opts = {},
-	},
-	{
-		"kylechui/nvim-surround",
-		version = "^3.0.0", -- Use for stability; omit to use `main` branch for the latest features
-		event = "VeryLazy",
-		config = true,
 	},
 }
