@@ -18,12 +18,12 @@ return {
 		dashboard.section.header.val = neovim_logo
 
 		dashboard.section.buttons.val = {
-			dashboard.button("n", "  New file", "<cmd>ene<CR>"),
-			dashboard.button("SPC f f", "  Find file", "<cmd>Telescope find_files<CR>"),
-			dashboard.button("l", "󰒲  Lazy", "<cmd>Lazy<CR>"),
-			dashboard.button("m", "󱌣  Mason", "<cmd>Mason<CR>"),
+			dashboard.button("n", "  New file", ":ene <BAR> startinsert <CR>"),
+			dashboard.button("f", "  Find file", ":Telescope find_files<CR>"),
+			dashboard.button("l", "󰒲  Lazy", ":Lazy <CR>"),
+			dashboard.button("m", "󱌣  Mason", ":Mason<CR>"),
 			dashboard.button("c", "  Config", ":e ~/.config/nvim/<CR>"),
-			dashboard.button("q", "  Quit", "<cmd>qa<CR>"),
+			dashboard.button("q", "  Quit", ":q!<CR>"),
 		}
 		return dashboard
 	end,
