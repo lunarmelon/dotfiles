@@ -14,17 +14,8 @@ return {
 					},
 				},
 			},
-		}, -- NOTE: Must be loaded before dependants
-		"mason-org/mason-lspconfig.nvim",
-
-		{
-			"j-hui/fidget.nvim",
-			opts = {
-				progress = {
-					display = { done_icon = "✓" },
-				},
-			},
 		},
+		"mason-org/mason-lspconfig.nvim",
 		"b0o/schemastore.nvim",
 	},
 	config = function()
@@ -127,8 +118,6 @@ return {
 					"html",
 					"javascriptreact",
 					"typescriptreact",
-					"php",
-					"phtml",
 					"astro",
 				},
 			},
@@ -138,18 +127,7 @@ return {
 					"css",
 					"javascriptreact",
 					"typescriptreact",
-					"php",
-					"phtml",
 					"astro",
-				},
-			},
-			cssls = {
-				filetypes = {
-					"css",
-					"scss",
-					"less",
-					"php",
-					"phtml",
 				},
 			},
 			jsonls = {
@@ -160,17 +138,9 @@ return {
 					},
 				},
 			},
-			intelephense = {
-				root_dir = require("lspconfig").util.root_pattern(
-					"composer.json",
-					".git",
-					vim.fs.dirname(vim.api.nvim_buf_get_name(0))
-				),
-			},
 			lua_ls = {
 				settings = {
 					Lua = {
-						-- make the language server recognize "vim" global
 						diagnostics = {
 							globals = { "vim" },
 							disable = { "missing-fields" },
@@ -187,10 +157,10 @@ return {
 			},
 		}
 
+		-- Ensure the servers and tools above are installed
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			-- LSPs
-			"angularls",
 			"astro",
 			"bashls",
 			"biome",
@@ -198,7 +168,6 @@ return {
 			"cssls",
 			"emmet_ls",
 			"html",
-			"intelephense",
 			"jsonls",
 			"lua_ls",
 			"marksman",
@@ -208,21 +177,11 @@ return {
 			"taplo",
 		})
 
-		--[[ require("mason-lspconfig").setup({
-			automatic_enable = true,
-			handlers = {
-				function(server_name)
-					local server = servers[server_name] or {}
-					-- This handles overriding only values explicitly passed
-					-- by the server configuration above. Useful when disabling
-					-- certain features of an LSP (for example, turning off formatting for tsserver)
-					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-					require("lspconfig")[server_name].setup(server)
-				end,
-			},
-			ensure_installed = ensure_installed,
-		}) ]]
 		for server, cfg in pairs(servers) do
+			-- For each LSP server (cfg), we merge:
+			-- 1. A fresh empty table (to avoid mutating capabilities globally)
+			-- 2. Your capabilities object with Neovim + cmp features
+			-- 3. Any server-specific cfg.capabilities if defined in `servers`
 			cfg.capabilites = vim.tbl_extend("force", {}, capabilities, cfg.capabilites or {})
 
 			vim.lsp.config(server, cfg)
