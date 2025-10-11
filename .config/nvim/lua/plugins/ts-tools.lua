@@ -5,7 +5,7 @@ return {
 	opts = {
 		settings = {
 			tsserver_format_options = {
-				indentSize = 2,
+				indentSize = 4,
 				convertTabsToSpaces = true,
 			},
 		},
