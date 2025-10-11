@@ -2,34 +2,39 @@ return { -- Highlight, edit, and navigate code
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 	main = "nvim-treesitter.configs", -- Sets main module to use for opts
-	-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 	opts = {
 		ensure_installed = {
-			"lua",
-			"python",
-			"javascript",
-			"typescript",
-			"vimdoc",
-			"vim",
-			"regex",
-			"dockerfile",
-			"toml",
-			"json",
-			"java",
+			"bash",
+			"c",
+			"css",
+			"cpp",
 			"go",
-			"gitignore",
-			"yaml",
+			"html",
+			"java",
+			"javascript",
+			"json",
+			"lua",
 			"markdown",
 			"markdown_inline",
-			"bash",
+			"python",
+			"regex",
+			"rust",
 			"tsx",
-			"css",
-			"html",
+			"typescript",
 		},
 		-- Autoinstall languages that are not installed
 		auto_install = true,
 		highlight = { enable = true },
 		indent = { enable = true },
+		incremental_selection = {
+			enable = true,
+			keymaps = {
+				init_selection = "<C-Space>",
+				node_incremental = "<C-Space>",
+				scope_incremental = "<C-s>",
+				node_decremental = "<M-Space>", -- NOTE: Override command if using GNOME
+			},
+		},
 		textobjects = {
 			select = {
 				enable = true,
@@ -75,17 +80,8 @@ return { -- Highlight, edit, and navigate code
 			},
 		},
 	},
-	-- There are additional nvim-treesitter modules that you can use to interact
-	-- with nvim-treesitter. You should go explore a few and see what interests you:
-	--
-	--    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-	--    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-	--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 	dependencies = {
-		{
-			"OXY2DEV/markview.nvim",
-			ft = { "markdown" },
-		},
+		"OXY2DEV/markview.nvim",
 		"nvim-treesitter/nvim-treesitter-context",
 		"nvim-treesitter/nvim-treesitter-textobjects",
 	},
