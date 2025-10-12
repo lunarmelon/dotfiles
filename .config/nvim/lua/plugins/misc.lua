@@ -5,21 +5,6 @@ return {
 		"christoomey/vim-tmux-navigator",
 	},
 	{
-		-- Detect tabstop and shiftwidth automatically
-		"tpope/vim-sleuth",
-	},
-	{
-		-- Hints keybinds
-		"folke/which-key.nvim",
-	},
-	{
-		-- Autoclose parentheses, brackets, quotes, etc.
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		config = true,
-		opts = {},
-	},
-	{
 		-- Highlight todo, notes, etc in comments
 		"folke/todo-comments.nvim",
 		event = "VimEnter",
@@ -37,15 +22,15 @@ return {
 			},
 		},
 	},
-	-- Live web server
 	{
+		-- Live web server
 		"barrett-ruth/live-server.nvim",
 		build = "bun add -g live-server",
 		cmd = { "LiveServerStart", "LiveServerStop" },
 		config = true,
 	},
-	-- Faster LuaLS setup for Neovim config
 	{
+		-- Faster LuaLS setup for Neovim config
 		"folke/lazydev.nvim",
 		ft = "lua",
 		opts = {},
