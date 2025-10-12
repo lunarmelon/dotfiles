@@ -8,25 +8,21 @@ alias pac='sudo pacman'
 alias py='python3'
 
 # Vim and Neovim
-alias nv='nvim'
 alias v='vim'
+alias nv='nvim'
 
 # Git
 alias gst='git status'
 alias ga='git add'
 alias gaa='git add --all'
-
 alias gc='git commit'
 alias gcm='git commit -m'
-
 alias gps='git push'
 alias gpl='git pull'
 alias gcl='git clone'
 alias gs='git switch'
-
 alias grh='git reset --hard'
 alias grhead='git reset HEAD'
-
 alias lg='lazygit'
 
 # Newsboat
@@ -46,4 +42,4 @@ alias icat='kitten icat'
 alias ff='fastfetch'
 alias ht='htop'
 alias bt='btop'
-alias rel='source $ZSHRC'
+alias rel='exec zsh'
