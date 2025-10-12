@@ -15,6 +15,7 @@ local options = {
 	-- relativenumber = true, -- Set relative numbered lines (default: false)
 	shiftwidth = 4, -- The number of spaces inserted for each indentation (default: 8)
 	showmode = false, -- We don't need to see things like -- INSERT -- anymore (default: true)
+	signcolumn = "yes", -- Keep signcolumn on by default
 	smartcase = true, -- Smart case (default: false)
 	smoothscroll = true, -- Smooth scrolling (default: false)
 	softtabstop = 4, -- Number of spaces that a tab counts for while performing editing operations (default: 0)
