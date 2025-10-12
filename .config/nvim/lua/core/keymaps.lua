@@ -77,4 +77,4 @@ map("v", "p", '"_dP', "Paste without yanking deleted text")
 
 -- Mini.files
 map("n", "<leader>e", ":lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>", "Open at current directory")
-map("n", "<leader>el", ":lua MiniFiles,open()", "Open in last used state")
+map("n", "<leader>el", ":lua MiniFiles.open()<CR>", "Open in last used state")
