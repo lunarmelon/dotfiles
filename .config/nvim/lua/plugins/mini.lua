@@ -3,6 +3,8 @@ return {
 	version = false,
 	config = function()
 		local miniclue = require("mini.clue")
+		local minicomment = require("mini.comment")
+		local minifiles = require("mini.files")
 		local minipairs = require("mini.pairs")
 
 		miniclue.setup({
@@ -48,6 +50,8 @@ return {
 				miniclue.gen_clues.z(),
 			},
 		})
+		minicomment.setup({})
+		minifiles.setup({})
 		minipairs.setup({})
 	end,
 }

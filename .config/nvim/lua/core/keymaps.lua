@@ -9,10 +9,10 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 local opts = { noremap = true, silent = true }
 
 -- save file
-vim.keymap.set("n", "<C-s>", ":w <CR>", opts)
+vim.keymap.set("n", "<C-s>", ":w<CR>", opts)
 
 -- save file without auto-formatting
-vim.keymap.set("n", "<leader>sn", ":noautocmd w <CR>", opts)
+vim.keymap.set("n", "<leader>sn", ":noautocmd w<CR>", opts)
 
 -- quit file
 vim.keymap.set("n", "<C-q>", ":q <CR>", opts)
@@ -72,4 +72,5 @@ vim.keymap.set("v", "p", '"_dP', opts)
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
-vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", opts)
+-- Open mini.files
+vim.keymap.set("n", "<leader>e", ":lua MiniFiles.open()<CR>", opts)
