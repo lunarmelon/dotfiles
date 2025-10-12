@@ -6,71 +6,74 @@ vim.g.maplocalleader = " "
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
 -- For conciseness
-local opts = { noremap = true, silent = true }
+local function map(mode, key, cmd, desc)
+	local opts = {
+		noremap = true,
+		silent = true,
+		desc = desc,
+	}
+	vim.keymap.set(mode, key, cmd, opts)
+end
 
 -- save file
-vim.keymap.set("n", "<C-s>", ":w<CR>", opts)
+map("n", "<C-s>", ":w<CR>", "Save file")
 
 -- save file without auto-formatting
-vim.keymap.set("n", "<leader>sn", ":noautocmd w<CR>", opts)
+map("n", "<leader>sn", ":noautocmd w<CR>", "Save file without auto-formatting")
 
 -- quit file
-vim.keymap.set("n", "<C-q>", ":q <CR>", opts)
+map("n", "<C-q>", ":q <CR>", "Quit file")
 
 -- delete single character without copying into register
-vim.keymap.set("n", "x", '"_x', opts)
+map("n", "x", '"_x', " Delete character")
 
 -- Vertical scroll and center
-vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
-vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
+map("n", "<C-d>", "<C-d>zz", "Scroll down and center")
+map("n", "<C-u>", "<C-u>zz", "Scroll up and center")
 
 -- Find and center
-vim.keymap.set("n", "n", "nzzzv", opts)
-vim.keymap.set("n", "N", "Nzzzv", opts)
+map("n", "n", "nzzzv", "Next match and center")
+map("n", "N", "Nzzzv", "Previous match and center")
 
 -- Resize with arrows
-vim.keymap.set("n", "<Up>", ":resize -2<CR>", opts)
-vim.keymap.set("n", "<Down>", ":resize +2<CR>", opts)
-vim.keymap.set("n", "<Left>", ":vertical resize -2<CR>", opts)
-vim.keymap.set("n", "<Right>", ":vertical resize +2<CR>", opts)
+map("n", "<Up>", ":resize -2<CR>", "Resize up")
+map("n", "<Down>", ":resize +2<CR>", "Resize down")
+map("n", "<Left>", ":vertical resize -2<CR>", "Resize left")
+map("n", "<Right>", ":vertical resize +2<CR>", "Resize right")
 
 -- Buffers
-vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
-vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
-vim.keymap.set("n", "<leader>x", ":bdelete!<CR>", opts) -- close buffer
-vim.keymap.set("n", "<leader>b", ":enew <CR>", opts) -- new buffer
+map("n", "<Tab>", ":bnext<CR>", "Next buffer")
+map("n", "<S-Tab>", ":bprevious<CR>", "Previous buffer")
+map("n", "<leader>x", ":bdelete!<CR>", "Close buffer")
+map("n", "<leader>b", ":enew <CR>", "New buffer")
 
 -- Window management
-vim.keymap.set("n", "<leader>v", "<C-w>v", opts) -- split window vertically
-vim.keymap.set("n", "<leader>h", "<C-w>s", opts) -- split window horizontally
-vim.keymap.set("n", "<leader>se", "<C-w>=", opts) -- make split windows equal width & height
-vim.keymap.set("n", "<leader>xs", ":close<CR>", opts) -- close current split window
+map("n", "<leader>v", "<C-w>v", "Split vertical")
+map("n", "<leader>h", "<C-w>s", "Split horizontal")
+map("n", "<leader>se", "<C-w>=", "Equal split")
+map("n", "<leader>xs", ":close<CR>", "Close split")
 
 -- Navigate between splits
-vim.keymap.set("n", "<C-k>", ":wincmd k<CR>", opts)
-vim.keymap.set("n", "<C-j>", ":wincmd j<CR>", opts)
-vim.keymap.set("n", "<C-h>", ":wincmd h<CR>", opts)
-vim.keymap.set("n", "<C-l>", ":wincmd l<CR>", opts)
+map("n", "<C-k>", ":wincmd k<CR>", "Move to upper split")
+map("n", "<C-j>", ":wincmd j<CR>", "Move to lower split")
+map("n", "<C-h>", ":wincmd h<CR>", "Move to left split")
+map("n", "<C-l>", ":wincmd l<CR>", "Move to right split")
 
 -- Tabs
-vim.keymap.set("n", "<leader>to", ":tabnew<CR>", opts) -- open new tab
-vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", opts) -- close current tab
-vim.keymap.set("n", "<leader>tn", ":tabn<CR>", opts) --  go to next tab
-vim.keymap.set("n", "<leader>tp", ":tabp<CR>", opts) --  go to previous tab
+map("n", "<leader>to", ":tabnew<CR>", "Open new tab")
+map("n", "<leader>tx", ":tabclose<CR>", "Close current tab")
+map("n", "<leader>tn", ":tabn<CR>", "Next tab")
+map("n", "<leader>tp", ":tabp<CR>", "Previous tab")
 
 -- Toggle line wrapping
-vim.keymap.set("n", "<leader>lw", ":set wrap!<CR>", opts)
+map("n", "<leader>lw", ":set wrap!<CR>", "Toggle line wrapping")
 
 -- Stay in indent mode
-vim.keymap.set("v", "<", "<gv", opts)
-vim.keymap.set("v", ">", ">gv", opts)
+map("v", "<", "<gv", "De-indent (stay in visual)")
+map("v", ">", ">gv", "Indent (stay in visual)")
 
 -- Keep last yanked when pasting
-vim.keymap.set("v", "p", '"_dP', opts)
-
--- Diagnostic keymaps
-vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+map("v", "p", '"_dP', "Paste without yanking deleted text")
 
 -- Open mini.files
-vim.keymap.set("n", "<leader>e", ":lua MiniFiles.open()<CR>", opts)
+map("n", "<leader>e", ":lua MiniFiles.open()<CR>", "Open mini.files")
