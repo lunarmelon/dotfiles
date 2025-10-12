@@ -6,6 +6,7 @@ return {
 		local minicomment = require("mini.comment")
 		local minifiles = require("mini.files")
 		local minipairs = require("mini.pairs")
+		local minisurround = require("mini.surround")
 
 		miniclue.setup({
 			triggers = {
@@ -50,8 +51,9 @@ return {
 				miniclue.gen_clues.z(),
 			},
 		})
-		minicomment.setup({})
-		minifiles.setup({})
-		minipairs.setup({})
+		minicomment.setup()
+		minifiles.setup()
+		minipairs.setup()
+		minisurround.setup()
 	end,
 }
