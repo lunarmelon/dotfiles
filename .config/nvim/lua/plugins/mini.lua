@@ -65,4 +65,11 @@ return {
 			end,
 		})
 	end,
+	-- Override all nvim-web-devicons dependencies with mini.icons.
+	init = function()
+		package.preload["nvim-web-devicons"] = function()
+			require("mini.icons").mock_nvim_web_devicons()
+			return package.loaded["nvim-web-devicons"]
+		end
+	end,
 }

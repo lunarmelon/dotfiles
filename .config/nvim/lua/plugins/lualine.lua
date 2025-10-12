@@ -1,7 +1,6 @@
 -- Set lualine as statusline
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		local mode = {
 			"mode",
