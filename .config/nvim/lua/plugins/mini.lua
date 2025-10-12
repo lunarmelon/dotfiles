@@ -5,8 +5,10 @@ return {
 		local miniclue = require("mini.clue")
 		local minicomment = require("mini.comment")
 		local minifiles = require("mini.files")
+		local miniicons = require("mini.icons")
 		local minipairs = require("mini.pairs")
 		local minisurround = require("mini.surround")
+		local minitabline = require("mini.tabline")
 
 		miniclue.setup({
 			triggers = {
@@ -53,7 +55,14 @@ return {
 		})
 		minicomment.setup()
 		minifiles.setup()
+		miniicons.setup()
 		minipairs.setup()
 		minisurround.setup()
+		minitabline.setup({
+			format = function(buf_id, label)
+				local suffix = vim.bo[buf_id].modified and "● " or ""
+				return MiniTabline.default_format(buf_id, label) .. suffix
+			end,
+		})
 	end,
 }
