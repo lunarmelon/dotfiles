@@ -121,6 +121,7 @@ return {
 					"astro",
 				},
 			},
+			cssls = {},
 			emmet_ls = {
 				filetypes = {
 					"html",
