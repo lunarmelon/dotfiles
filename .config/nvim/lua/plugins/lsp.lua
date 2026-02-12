@@ -116,7 +116,9 @@ return {
 			html = {
 				filetypes = {
 					"html",
+					"javascript",
 					"javascriptreact",
+					"typescript",
 					"typescriptreact",
 					"astro",
 				},
@@ -126,7 +128,9 @@ return {
 				filetypes = {
 					"html",
 					"css",
+					"javascript",
 					"javascriptreact",
+					"typescript",
 					"typescriptreact",
 					"astro",
 				},

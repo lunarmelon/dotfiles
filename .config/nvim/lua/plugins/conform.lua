@@ -16,7 +16,7 @@ return {
 				python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 				html = { "prettierd" },
 				css = { "biome", "biome-check", "biome-organize-imports" },
-				javascript = { "biome", "biome-check", "biome-organize-imports" },
+				javascript = { "injected", "biome", "biome-check", "biome-organize-imports" },
 				typescript = { "biome", "biome-check", "biome-organize-imports" },
 				javascriptreact = { "biome", "biome-check", "biome-organize-imports" },
 				typescriptreact = { "biome", "biome-check", "biome-organize-imports" },
