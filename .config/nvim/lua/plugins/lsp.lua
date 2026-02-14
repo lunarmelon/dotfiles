@@ -124,6 +124,8 @@ return {
 				},
 			},
 			cssls = {},
+			astro = {},
+			clangd = {},
 			emmet_ls = {
 				filetypes = {
 					"html",
@@ -187,7 +189,7 @@ return {
 			-- 1. A fresh empty table (to avoid mutating capabilities globally)
 			-- 2. Your capabilities object with Neovim + cmp features
 			-- 3. Any server-specific cfg.capabilities if defined in `servers`
-			cfg.capabilites = vim.tbl_extend("force", {}, capabilities, cfg.capabilites or {})
+			cfg.capabilities = vim.tbl_deep_extend("force", {}, capabilities, cfg.capabilities or {})
 
 			vim.lsp.config(server, cfg)
 			vim.lsp.enable(server)
