@@ -35,4 +35,8 @@ return {
 		ft = "lua",
 		opts = {},
 	},
+	{
+		"qwavies/smart-backspace.nvim",
+		event = { "InsertEnter", "CmdlineEnter" },
+	},
 }
