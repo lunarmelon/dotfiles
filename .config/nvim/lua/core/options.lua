@@ -1,5 +1,5 @@
 local options = {
-	autoindent = false, -- Copy indent from current line when starting new one (default: true)
+	autoindent = true, -- Copy indent from current line when starting new one (default: true)
 	breakindent = true, -- Enable break indent (default: false)
 	clipboard = "unnamedplus", -- Sync clipboard between OS and Neovim. (default: '')
 	completeopt = "menuone,noselect", -- Set completeopt to have a better completion experience (default: 'menu,preview')
