@@ -24,10 +24,10 @@ return {
 	},
 	{
 		-- Live web server
-		"barrett-ruth/live-server.nvim",
-		build = "bun add -g live-server",
-		cmd = { "LiveServerStart", "LiveServerStop" },
-		config = true,
+		"brianhuster/live-preview.nvim",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+		},
 	},
 	{
 		-- Faster LuaLS setup for Neovim config
