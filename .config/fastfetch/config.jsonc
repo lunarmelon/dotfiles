@@ -56,16 +56,16 @@
 			"key": "   ",
 			"keyColor": "magenta"
 		},
-		{
-			"type": "de",
-			"key": "  󰧨 ",
-			"keyColor": "magenta"
-		},
-		{
-			"type": "wm",
-			"key": "   ",
-			"keyColor": "magenta"
-		},
+		// {
+		// 	"type": "de",
+		// 	"key": "  󰧨 ",
+		// 	"keyColor": "magenta"
+		// },
+		// {
+		// 	"type": "wm",
+		// 	"key": "   ",
+		// 	"keyColor": "magenta"
+		// },
 		{
 			"type": "custom",
 			"format": "  ── ── ── ── ── ── ── ── ── ── ── ── ── ──",
