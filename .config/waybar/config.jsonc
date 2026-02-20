@@ -1,0 +1,63 @@
+{
+	"modules-left": ["sway/workspaces", "custom/sep"],
+	"modules-right": [
+		"mpd",
+		"custom/sep",
+		"idle_inhibitor",
+		"custom/sep",
+		"pulseaudio",
+		"custom/sep",
+		"network",
+		"custom/sep",
+		"battery",
+		"custom/sep",
+		"clock",
+		"custom/sep",
+		"tray"
+	],
+	"clock": {
+		"format": "{:%I:%M %p}"
+	},
+	"battery": {
+		"states": {
+			"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"interval": 60,
+		"format": "{icon}{capacity}%",
+		"format-charging": "󱐋 {capacity}%",
+		"format-plugged": "󰂄 {capacity}%",
+		"format-alt": "{icon}%",
+		"format-time": "{H}:{M}",
+		"format-icons": ["󰁺 ", "󰁻 ", "󰁼 ", "󰁽 ", "󰁾 ", "󰁿 ", "󰂀 ", "󰂁 ", "󰂂 ", "󰁹 "]
+	},
+	"network": {
+		"format": "Online",
+		"format-wifi": "{essid} ({signalStrength}%) ",
+		"format-ethernet": "Ethernet 󰈀",
+		"format-disconnected": "Disconnected"
+	},
+	"pulseaudio": {
+		"format": "{volume}% {icon}",
+		"format-bluetooth": "{volume}% ",
+		"format-muted": " ",
+		"format-icons": {
+			"headphone": "",
+			"headset": "󰋎",
+			"default": ["", "", ""]
+		}
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": " ",
+			"deactivated": " "
+		}
+	},
+	"custom/sep": {
+		"format": "|",
+		"interval": 0,
+		"tooltip": false
+	}
+}
