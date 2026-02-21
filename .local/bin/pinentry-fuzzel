@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# General information about the pinentry protocol is found here:
+# https://gorbe.io/posts/gnupg/pinentry/documentation/
+
+# Script is based on 'pinentry-dmenu'
+# https://github.com/inco-cc/pinentry-dmenu/blob/master/pinentry-dmenu
+echo 'OK Pleased to meet you'
+# DBG_FILE="${HOME}/debug-pinentry-fuzzel"
+# echo "" > ${DBG_FILE}
+while read -r stdin; do
+    # >> ${DBG_FILE} echo $stdin
+    case $stdin in
+    *BYE*) break ;;
+    *SETDESC*)
+        KEYNAME=${stdin#*:%0A%22}
+        KEYNAME=${KEYNAME%\%22\%0A*}
+        KEYID=${stdin#*ID }
+        KEYID=${KEYID%,*}
+        echo OK
+        ;;
+    *GETPIN*)
+        PASS_INPUT=$(DISPLAY=:0 fuzzel --dmenu --password --prompt-only "GPG ${KEYNAME}: ")
+        # >> ${DBG_FILE} echo "${PASS_INPUT}"
+        if [ "${PASS_INPUT}" != "x" ]; then
+            echo "D ${PASS_INPUT}"
+            echo "OK"
+        fi
+        ;;
+    *) echo OK ;;
+    esac
+done
