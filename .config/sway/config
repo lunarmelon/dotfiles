@@ -189,6 +189,8 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym Print exec grim
 # Wleave
 bindsym $mod+Shift+e exec wleave
+# Clipboard
+bindsym $mod+Shift+v exec cliphist-fuzzel-img
 
 # Appearance
 include catppuccin-mocha
@@ -208,6 +210,11 @@ title_align center
 default_floating_border pixel 1
 
 seat seat0 xcursor_theme Bibata-Modern-Classic 24
+
+exec_always {
+    wl-paste --type text --watch cliphist store
+    wl-paste --type image --watch cliphist store
+}
 
 bar {
     swaybar_command waybar
