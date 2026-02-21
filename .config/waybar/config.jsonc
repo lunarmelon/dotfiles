@@ -55,6 +55,37 @@
 			"deactivated": " "
 		}
 	},
+	"mpd": {
+		"format": "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+		"format-disconnected": "󰝛 Disconnected",
+		"format-stopped": "",
+		"interval": 10,
+		"consume-icons": {
+			"on": ""
+		},
+		"random-icons": {
+			"off": "<span color=\"#f38ba8\"></span> ",
+			"on": "<span color=\"#a6e3a1\"></span> "
+		},
+		"repeat-icons": {
+			"on": ""
+		},
+		"single-icons": {
+			"on": "1"
+		},
+		"state-icons": {
+			"paused": "",
+			"playing": ""
+		},
+		"tooltip-format": "MPD (connected)",
+		"tooltip-format-disconnected": "MPD (disconnected)",
+		"on-click": "rmpc togglepause",
+		"on-click-right": "rmpc next"
+	},
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"format": "{icon}"
+	},
 	"custom/sep": {
 		"format": "|",
 		"interval": 0,
