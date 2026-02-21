@@ -1,0 +1,25 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+cava: (
+  orientation: Bottom,
+  bar_width: 1,
+  bar_spacing: 1,
+  bg_color: "#1e1e2e",
+  bar_color: Gradient({
+    0: "#94e2d5", // gradient_color_1 (Bottom - Teal)
+    14: "#89dceb", // gradient_color_2 (Sky)
+    28: "#74c7ec", // gradient_color_3 (Sapphire)
+    42: "#89b4fa", // gradient_color_4 (Blue)
+    57: "#cba6f7", // gradient_color_5 (Mauve)
+    71: "#f5c2e7", // gradient_color_6 (Pink)
+    85: "#eba0ac", // gradient_color_7 (Maroon)
+   100: "#f38ba8", // gradient_color_8 (Top - Red)
+  }),
+  bar_symbols: [' ', '▂', '▃', '▄', '▅', '▆', '▇', '█'],
+),
+)
