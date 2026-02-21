@@ -1,0 +1,46 @@
+{
+	"buttons": [
+		{
+			"label": "lock",
+			"action": "swaylock",
+			"text": "Lock",
+			"keybind": "l",
+			"icon": "/home/melon/.config/wleave/lock.svg"
+		},
+		{
+			"label": "hibernate",
+			"action": "systemctl hibernate",
+			"text": "Hibernate",
+			"keybind": "h",
+			"icon": "/home/melon/.config/wleave/hibernate.svg"
+		},
+		{
+			"label": "logout",
+			"action": "swaymsg exit",
+			"text": "Log Out",
+			"keybind": "e",
+			"icon": "/home/melon/.config/wleave/logout.svg"
+		},
+		{
+			"label": "shutdown",
+			"action": "systemctl poweroff",
+			"text": "Shutdown",
+			"keybind": "s",
+			"icon": "/home/melon/.config/wleave/shutdown.svg"
+		},
+		{
+			"label": "suspend",
+			"action": "systemctl suspend",
+			"text": "Suspend",
+			"keybind": "u",
+			"icon": "/home/melon/.config/wleave/suspend.svg"
+		},
+		{
+			"label": "reboot",
+			"action": "systemctl reboot",
+			"text": "Reboot",
+			"keybind": "r",
+			"icon": "/home/melon/.config/wleave/reboot.svg"
+		}
+	]
+}
