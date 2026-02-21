@@ -31,6 +31,7 @@ export FFMPEG_DATADIR="$XDG_CONFIG_HOME/ffmpeg"
 export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
 export BUN_INSTALL="$XDG_DATA_HOME/bun"
 export NVM_DIR="$XDG_CONFIG_HOME/nvm"
+export MPD_HOST="$XDG_RUNTIME_DIR/mpd/socket"
 
 # Zinit plugin manager
 export ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
