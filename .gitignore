@@ -6,3 +6,6 @@
 
 # lazy lock file
 .config/nvim/lazy-lock.json
+
+# mpd database
+.config/mpd/database
