@@ -218,6 +218,7 @@ seat seat0 xcursor_theme Bibata-Modern-Classic 24
 exec_always {
     wl-paste --type text --watch cliphist store
     wl-paste --type image --watch cliphist store
+    dunst
 }
 
 bar {
