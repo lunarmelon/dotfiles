@@ -220,7 +220,7 @@ exec_always {
 
 bar {
     swaybar_command swaybar
-    font pango:JetBrainsMono Nerd Font 11
+    font pango:JetBrainsMono Nerd Font 10
 
     colors {
         background         $crust
