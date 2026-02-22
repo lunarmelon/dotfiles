@@ -192,6 +192,8 @@ bindsym Print exec grim
 bindsym $mod+Shift+e exec wleave
 # Clipboard
 bindsym $mod+Shift+v exec cliphist-fuzzel-img
+# Screenshot
+bindsym $mod+Shift+s exec screenshot
 
 # Appearance
 include catppuccin-mocha
