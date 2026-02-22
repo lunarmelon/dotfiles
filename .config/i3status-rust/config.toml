@@ -1,0 +1,101 @@
+icons_format = "{icon}"
+
+# [palette.mocha]
+# rosewater = "#f5e0dc"
+# flamingo = "#f2cdcd"
+# pink = "#f5c2e7"
+# mauve = "#cba6f7"
+# red = "#f38ba8"
+# maroon = "#eba0ac"
+# peach = "#fab387"
+# yellow = "#f9e2af"
+# green = "#a6e3a1"
+# teal = "#94e2d5"
+# sky = "#89dceb"
+# sapphire = "#74c7ec"
+# blue = "#89b4fa"
+# lavender = "#b4befe"
+# text = "#cdd6f4"
+# subtext1 = "#bac2de"
+# subtext0 = "#a6adc8"
+# overlay2 = "#9399b2"
+# overlay1 = "#7f849c"
+# overlay0 = "#6c7086"
+# surface2 = "#585b70"
+# surface1 = "#45475a"
+# surface0 = "#313244"
+# base = "#1e1e2e"
+# mantle = "#181825"
+# crust = "#11111b"
+
+[theme.overrides]
+end_separator = ""
+start_separator = ""
+separator = "|"
+separator_bg = ""
+separator_fg = "#cdd6f4"
+idle_bg = "#11111b"
+idle_fg = ""
+good_bg = ""
+good_fg = ""
+warning_bg = "#11111b"
+warning_fg = "#f9e2af"
+critical_bg = "#11111b"
+critical_fg = "#f38ba8"
+info_bg = ""
+info_fg = "#cba6f7"
+alternating_tint_bg = ""
+alternating_tint_fg = ""
+
+[icons]
+icons = "material-nf"
+[icons.overrides]
+bat = ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+bat_charging = "󱐋"
+
+[[block]]
+block = "music"
+player = "mpd"
+
+[[block]]
+block = "battery"
+driver = "upower"
+missing_format = ""
+info = 0
+good = 0
+warning = 20
+critical = 10
+
+[[block]]
+block = "net"
+format = " $icon {$signal_strength $ssid|Wired }"
+[[block.click]]
+button = "left"
+cmd = "kitty -e impala"
+
+[[block]]
+block = "cpu"
+info_cpu = 100
+warning_cpu = 70
+critical_cpu = 90
+
+[[block]]
+block = "memory"
+format = " $icon $mem_total_used_percents.eng(w:2) "
+format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
+
+[[block]]
+block = "sound"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+[[block.click]]
+button = "right"
+cmd = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+
+[[block]]
+block = "time"
+interval = 60
+[block.format]
+short = " $timestamp.datetime(f:'%a %d-%b') "
+full = " $timestamp.datetime(f:'%a %d-%b %R') "

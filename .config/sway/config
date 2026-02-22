@@ -195,7 +195,8 @@ bindsym $mod+Shift+v exec cliphist-fuzzel-img
 # Appearance
 include catppuccin-mocha
 
-client.focused           $blue     $base $text  $rosewater $lavender
+# target                 title     bg    text   indicator  border
+client.focused           $lavender $base $text  $rosewater $lavender
 client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
 client.unfocused         $overlay0 $base $text  $rosewater $overlay0
 client.urgent            $peach    $base $peach $overlay0  $peach
@@ -217,7 +218,22 @@ exec_always {
 }
 
 bar {
-    swaybar_command waybar
-    gaps 0
+    swaybar_command swaybar
+    font pango:JetBrainsMono Nerd Font 11
+
+    colors {
+        background         $crust
+        statusline         $text
+        focused_statusline $text
+        focused_separator  $crust
+
+        # target           border bg        text
+        focused_workspace  $crust  $mauve    $crust
+        active_workspace   $crust  $surface2 $text
+        inactive_workspace $crust  $crust    $text
+        urgent_workspace   $crust  $red      $crust
+    }
+
+    status_command i3status-rs
 }
 
