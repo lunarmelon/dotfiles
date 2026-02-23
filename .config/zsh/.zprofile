@@ -32,6 +32,7 @@ export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
 export BUN_INSTALL="$XDG_DATA_HOME/bun"
 export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 export MPD_HOST="$XDG_RUNTIME_DIR/mpd/socket"
+export QT_QPA_PLATFORM="wayland"
 export QT_QPA_PLATFORMTHEME="qt6ct"
 
 # Zinit plugin manager
