@@ -102,15 +102,24 @@ return {
 		--  By default, Neovim doesn't support everything that is in the LSP specification.
 		--  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
 		--  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
-		local original_capabilities = vim.lsp.protocol.make_client_capabilities()
-		local capabilities = require("blink.cmp").get_lsp_capabilities(original_capabilities)
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities({}, false))
 
 		local servers = {
-			pyright = {
+			pylsp = {
 				settings = {
-					pyright = {
-						disableOrganizeImports = true,
-						analysis = { autoSearchPaths = true, autoImportCompletion = true },
+					pylsp = {
+						plugins = {
+							pyflakes = { enabled = false },
+							pycodestyle = { enabled = false },
+							autopep8 = { enabled = false },
+							yapf = { enabled = false },
+							mccabe = { enabled = false },
+							pylsp_mypy = { enabled = false },
+							pylsp_black = { enabled = false },
+							pylsp_isort = { enabled = false },
+							pylsp_rope = { enabled = false },
+						},
 					},
 				},
 			},
@@ -147,16 +156,20 @@ return {
 			lua_ls = {
 				settings = {
 					Lua = {
+						completion = {
+							callSnippet = "Replace",
+						},
+						runtime = { version = "LuaJIT" },
+						workspace = {
+							checkThirdParty = false,
+							library = vim.api.nvim_get_runtime_file("", true),
+						},
 						diagnostics = {
 							globals = { "vim" },
 							disable = { "missing-fields" },
 						},
-						runtime = {
-							version = "LuaJIT",
-						},
-						workspace = {
-							library = vim.api.nvim_get_runtime_file("", true),
-							checkThirdParty = false,
+						format = {
+							enable = false,
 						},
 					},
 				},
@@ -166,21 +179,8 @@ return {
 		-- Ensure the servers and tools above are installed
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
-			-- LSPs
-			"astro",
-			"bashls",
-			"biome",
-			"clangd",
-			"cssls",
-			"emmet_ls",
-			"html",
-			"jsonls",
-			"lua_ls",
-			"marksman",
-			"pyright",
-			"ruff",
-			"tailwindcss",
-			"taplo",
+			"stylua",
+			"selene",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
