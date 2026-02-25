@@ -17,6 +17,7 @@ return {
 		},
 		"mason-org/mason-lspconfig.nvim",
 		"b0o/schemastore.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
 	config = function()
 		vim.api.nvim_create_autocmd("LspAttach", {
@@ -124,6 +125,8 @@ return {
 			cssls = {},
 			astro = {},
 			clangd = {},
+			marksman = {},
+			ruff = {},
 			emmet_ls = {
 				filetypes = {
 					"html",
@@ -179,6 +182,7 @@ return {
 			"tailwindcss",
 			"taplo",
 		})
+		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		for server, cfg in pairs(servers) do
 			-- For each LSP server (cfg), we merge:
