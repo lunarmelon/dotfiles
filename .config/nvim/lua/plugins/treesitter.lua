@@ -1,6 +1,7 @@
 return { -- Highlight, edit, and navigate code
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
+	lazy = false,
 	opts = {
 		ensure_installed = {
 			"bash",
@@ -79,6 +80,9 @@ return { -- Highlight, edit, and navigate code
 			},
 		},
 	},
+	config = function(_, opts)
+		require("nvim-treesitter.configs").setup(opts)
+	end,
 	dependencies = {
 		"OXY2DEV/markview.nvim",
 		"nvim-treesitter/nvim-treesitter-context",
