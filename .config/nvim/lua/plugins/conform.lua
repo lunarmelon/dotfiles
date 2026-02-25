@@ -31,7 +31,6 @@ return {
 				jsonc = { "biome", "biome-check", "biome-organize-imports" },
 				toml = { "taplo" },
 				yaml = { "prettierd" },
-				php = { "php_cs_fixer", "pint" },
 				c = { "clang-format" },
 				cpp = { "clang-format" },
 				markdown = { "prettierd" },
