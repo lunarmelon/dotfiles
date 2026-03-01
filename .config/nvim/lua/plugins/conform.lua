@@ -7,6 +7,8 @@ return {
 		require("conform").setup({
 			format_on_save = {
 				timeout_ms = 1000,
+				async = false, -- not recommended to change
+				quiet = false, -- not recommended to change
 				lsp_fallback = true, -- uses LSP if no formatter is found
 			},
 			formatters = {
