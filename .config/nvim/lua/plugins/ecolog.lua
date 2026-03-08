@@ -1,52 +1,76 @@
 return {
 	"ph1losof/ecolog.nvim",
-	branch = "v1",
 	keys = {
+		{ "<leader>e", "", desc = "+ecolog", mode = { "n", "v" } },
+		{ "<leader>el", "<Cmd>EcologShelterLinePeek<cr>", desc = "Peek line" },
+		{ "<leader>ey", "<Cmd>EcologCopy<cr>", desc = "Copy value under cursor" },
+		{ "<leader>ei", "<Cmd>EcologInterpolationToggle<cr>", desc = "Toggle interpolation" },
+		{ "<leader>eh", "<Cmd>EcologShellToggle<cr>", desc = "Toggle shell variables" },
 		{ "<leader>ge", "<cmd>EcologGoto<cr>", desc = "Go to env file" },
-		{ "<leader>ep", "<cmd>EcologPeek<cr>", desc = "Ecolog peek variable" },
-		{ "<leader>es", "<cmd>EcologSelect<cr>", desc = "Switch env file" },
+		{ "<leader>ec", "<cmd>EcologSnacks<cr>", desc = "Open a picker" },
+		{ "<leader>eS", "<cmd>EcologSelect<cr>", desc = "Switch env file" },
+		{ "<leader>es", "<cmd>EcologShelterToggle<cr>", desc = "Shelter toggle" },
 	},
-	-- Lazy loading is done internally
-	lazy = false,
 	opts = {
+		preferred_environment = "local",
+		types = true,
+		monorepo = {
+			enabled = true,
+			auto_switch = true,
+			notify_on_switch = false,
+		},
+		providers = {
+			{
+				pattern = "{{[%w_]+}}?$",
+				filetype = "http",
+				extract_var = function(line, col)
+					local utils = require("ecolog.utils")
+					return utils.extract_env_var(line, col, "{{([%w_]+)}}?$")
+				end,
+				get_completion_trigger = function()
+					return "{{"
+				end,
+			},
+		},
+		interpolation = {
+			enabled = true,
+			features = {
+				commands = false,
+			},
+		},
+		sort_var_fn = function(a, b)
+			if a.source == "shell" and b.source ~= "shell" then
+				return false
+			end
+			if a.source ~= "shell" and b.source == "shell" then
+				return true
+			end
+
+			return a.name < b.name
+		end,
 		integrations = {
 			blink_cmp = true,
 		},
-		-- Enables shelter mode for sensitive values
 		shelter = {
 			configuration = {
-				-- Partial mode configuration:
-				-- false: completely mask values (default)
-				-- true: use default partial masking settings
-				-- table: customize partial masking
-				-- partial_mode = false,
-				-- or with custom settings:
-				partial_mode = {
-					show_start = 3, -- Show first 3 characters
-					show_end = 3, -- Show last 3 characters
-					min_mask = 3, -- Minimum masked characters
+				patterns = {
+					["DATABASE_URL"] = "full",
 				},
-				mask_char = "*", -- Character used for masking
-				mask_length = nil, -- Optional: fixed length for masked portion (defaults to value length)
-				skip_comments = false, -- Skip masking comment lines in environment files (default: false)
+				sources = {
+					[".env.example"] = "none",
+				},
+				partial_mode = {
+					min_mask = 5,
+					show_start = 1,
+					show_end = 1,
+				},
+				mask_char = "*",
 			},
 			modules = {
-				cmp = true, -- Enabled to mask values in completion
-				peek = false, -- Enable to mask values in peek view
-				files = true, -- Enabled to mask values in file buffers
-				telescope = false, -- Enable to mask values in telescope integration
-				telescope_previewer = false, -- Enable to mask values in telescope preview buffers
-				fzf = false, -- Enable to mask values in fzf picker
-				fzf_previewer = false, -- Enable to mask values in fzf preview buffers
-				snacks_previewer = false, -- Enable to mask values in snacks previewer
-				snacks = false, -- Enable to mask values in snacks picker
+				cmp = true,
+				files = true,
 			},
 		},
-		-- true by default, enables built-in types (database_url, url, etc.)
-		types = true,
-		path = vim.fn.getcwd(), -- Path to search for .env files
-		preferred_environment = "development", -- Optional: prioritize specific env files
-		-- Controls how environment variables are extracted from code and how cmp works
-		provider_patterns = true, -- true by default, when false will not check provider patterns
+		path = vim.fn.getcwd(),
 	},
 }
