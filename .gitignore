@@ -9,3 +9,8 @@
 
 # mpd database
 .config/mpd/database
+
+# gpg secret files
+private-keys-v1.d
+trustdb.gpg
+pubring.kbx*
