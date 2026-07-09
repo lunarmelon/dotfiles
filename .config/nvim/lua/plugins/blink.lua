@@ -65,17 +65,13 @@ return {
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
-			default = { "conventional_commits", "lazydev", "ecolog", "lsp", "path", "snippets", "buffer" },
+			default = { "conventional_commits", "lazydev", "lsp", "path", "snippets", "buffer" },
 			providers = {
 				lazydev = {
 					name = "LazyDev",
 					module = "lazydev.integrations.blink",
 					-- make lazydev completions top priority (see `:h blink.cmp`)
 					score_offset = 100,
-				},
-				ecolog = {
-					name = "ecolog",
-					module = "ecolog.integrations.cmp.blink_cmp",
 				},
 				-- Use the thesaurus source
 				thesaurus = {
