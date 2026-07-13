@@ -110,3 +110,7 @@ map("n", "<leader>u", function()
 	vim.cmd.packadd("nvim.undotree")
 	require("undotree").open()
 end, "Toggle Builtin Undotree")
+
+map("n", "<leader>re", "<cmd>restart<cr>", "Restart config :restart)")
+
+map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "Replace word cursor is on globally")
