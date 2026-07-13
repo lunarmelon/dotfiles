@@ -1,0 +1,16 @@
+vim.pack.add({
+	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
+	"https://github.com/neovim/nvim-lspconfig",
+	"https://github.com/mason-org/mason.nvim",
+	"https://github.com/nvim-mini/mini.nvim",
+	"https://github.com/rafamadriz/friendly-snippets",
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main" },
+	"https://github.com/creativenull/efmls-configs-nvim",
+	"https://github.com/b0o/SchemaStore.nvim",
+	"https://github.com/lukas-reineke/indent-blankline.nvim",
+	"https://github.com/christoomey/vim-tmux-navigator",
+	"https://github.com/catgoose/nvim-colorizer.lua",
+	"https://github.com/neogitorg/neogit",
+	"https://github.com/nvim-lualine/lualine.nvim",
+	"https://github.com/tpope/vim-fugitive",
+})

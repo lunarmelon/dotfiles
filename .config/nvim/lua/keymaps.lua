@@ -79,6 +79,34 @@ map("v", "p", '"_dP', "Paste without yanking deleted text")
 map("n", "<leader>e", ":lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>", "Open at current directory")
 map("n", "<leader>el", ":lua MiniFiles.open()<CR>", "Open in last used state")
 
--- Fterm
-map("n", "<leader>z", ":lua require('FTerm').open()<CR>")
-map("t", "<Esc>", '<C-\\><C-n><CMD>lua require("FTerm").close()<CR>')
+-- Mini.picker
+local MiniPick = require("mini.pick")
+local MiniExtra = require("mini.extra")
+MiniPick.setup()
+MiniExtra.setup()
+
+map("n", "<leader>pf", function()
+	MiniPick.builtin.files()
+end, "Mini File Picker")
+map("n", "<leader>ps", function()
+	MiniPick.builtin.grep({ pattern = vim.fn.expand("<cword>") })
+end, "Grep word/Search word")
+map("n", "<leader>vh", function()
+	MiniPick.builtin.help()
+end, "Mini Help")
+
+map("n", "<leader>xx", function()
+	MiniExtra.pickers.diagnostic()
+end, "Mini picker diagnostics")
+map("n", "<leader>pk", function()
+	MiniExtra.pickers.keymaps()
+end, "Search keymaps")
+
+-- Neogit
+map("n", "<leader>gg", "<cmd>Neogit<CR>", "Show Neogit UI")
+
+-- Native undotree
+map("n", "<leader>u", function()
+	vim.cmd.packadd("nvim.undotree")
+	require("undotree").open()
+end, "Toggle Builtin Undotree")
