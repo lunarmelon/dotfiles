@@ -13,4 +13,5 @@ vim.pack.add({
 	"https://github.com/neogitorg/neogit",
 	"https://github.com/nvim-lualine/lualine.nvim",
 	"https://github.com/tpope/vim-fugitive",
+	"https://github.com/brianhuster/live-preview.nvim",
 })
